@@ -1,0 +1,22 @@
+CC=gcc
+CFLAGS=-c #-Wall
+
+all: assgn1 job
+
+assgn1: assgn1.o log.o
+	$(CC) assgn1.o log.o -o assgn1
+
+assgn1.o: assgn1.c
+	$(CC) $(CFLAGS) assgn1.c
+
+job.o: job.c
+	$(CC) $(CFLAGS) job.c
+
+log.o: log.c
+	$(CC) $(CFLAGS) log.c
+
+job: job.o log.o
+	$(CC) job.o log.o -o job
+
+clean:
+	rm -rf *.o assign1 job log

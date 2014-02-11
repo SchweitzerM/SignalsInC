@@ -1,0 +1,23 @@
+CC = gcc
+
+BUILDFILES = assgn1 job 
+
+all: $(BUILDFILES) 
+
+assgn1: assgn1.o log.o 
+	$(CC) -o $@ $^
+
+job: job.o log.o 
+	$(CC) -o $@ $^ 
+
+assgn1.o: assgn1.c 
+	$(CC) -c $^ 
+
+job.o: job.c 
+	$(CC) -c $^ 
+
+log.o: log.c 
+	$(CC) -c $^ 
+
+clean: 
+	rm $(BUILDFILES) *.o
